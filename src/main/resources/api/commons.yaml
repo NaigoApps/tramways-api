@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Tramways Commons API
+  description: Tramways Commons API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8762/tramways/rest/
+paths:
+  {}
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    TramwaysResource:
+      type: object
+      discriminator:
+        propertyName: resourceType
+      properties:
+        uuid:
+          type: string
+        resourceType:
+          type: string
+    Configurable:
+      type: object
+      discriminator:
+        propertyName: 'configurableType'
+      properties:
+        id:
+          type: string
+        category:
+          type: string
+        configurableType:
+          type: string
+        props:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+    Property:
+      type: object
+      discriminator:
+        propertyName: propertyType
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        propertyType:
+          type: string
+        valid:
+          type: boolean
+      required: [propertyType]
+    BooleanWrapper:
+      type: object
+      properties:
+        value:
+          type: boolean
+    StringWrapper:
+      type: object
+      properties:
+        value:
+          type: string
+    ErrorWrapper:
+      type: object
+      properties:
+        message:
+          type: string
+  responses:
+    Created:
+      description: 'Resource created'
+      headers:
+        Location:
+          schema:
+            type: string
+    Ok:
+      description: 'Request successful'
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/StringWrapper'
+    Unauthorized:
+      description: 'You are not authorized'
+security:
+  - bearerAuth: []

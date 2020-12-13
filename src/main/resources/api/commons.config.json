@@ -1,0 +1,5 @@
+{
+  "importMappings": {
+    "Property" : "it.tramways.properties.api.model.Property"
+  }
+}

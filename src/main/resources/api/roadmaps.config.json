@@ -1,0 +1,7 @@
+{
+  "importMappings": {
+    "TramwaysResource" : "it.tramways.commons.api.model.TramwaysResource",
+    "Configurable" : "it.tramways.commons.api.model.Configurable",
+    "Property" : "it.tramways.properties.api.model.Property"
+  }
+}

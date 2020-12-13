@@ -1,0 +1,67 @@
+openapi: 3.0.3
+info:
+  title: Tramways Analysis API
+  description: Tramways Analysis API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8762/tramways/rest/
+paths:
+  {}
+components:
+  schemas:
+    RoadMapDescription:
+      allOf:
+        - $ref: './commons.yaml#/components/schemas/TramwaysResource'
+        - type: object
+          properties:
+            name:
+              type: string
+    RoadMap:
+      allOf:
+        - $ref: './commons.yaml#/components/schemas/TramwaysResource'
+        - type: object
+          properties:
+            name:
+              type: string
+            content:
+              $ref: '#/components/schemas/RoadMapContent'
+    RoadMapContent:
+      type: object
+      properties:
+        points:
+          type: array
+          items:
+            $ref: '#/components/schemas/RelevantPoint'
+        lanes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lane'
+    RelevantPoint:
+      allOf:
+        - $ref: './commons.yaml#/components/schemas/Configurable'
+        - type: object
+          properties:
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/CrossingLink'
+    Lane:
+      allOf:
+        - $ref: './commons.yaml#/components/schemas/Configurable'
+        - type: object
+          properties:
+            sourceId:
+              type: string
+            destinationId:
+              type: string
+    CrossingLink:
+      allOf:
+        - $ref: './commons.yaml#/components/schemas/Configurable'
+        - type: object
+          properties:
+            sourceId:
+              type: string
+            destinationId:
+              type: string
+security:
+  - bearerAuth: []

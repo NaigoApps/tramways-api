@@ -1,0 +1,10 @@
+{
+  "importMappings": {
+    "TramwaysResource" : "it.tramways.commons.api.model.TramwaysResource",
+    "BooleanWrapper" : "it.tramways.commons.api.model.BooleanWrapper",
+    "StringWrapper" : "it.tramways.commons.api.model.StringWrapper",
+    "ErrorWrapper" : "it.tramways.commons.api.model.ErrorWrapper",
+    "Configurable" : "it.tramways.commons.api.model.Configurable",
+    "Property" : "it.tramways.properties.api.model.Property"
+  }
+}

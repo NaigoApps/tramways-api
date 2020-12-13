@@ -1,0 +1,15 @@
+{
+  "importMappings": {
+    "TramwaysResource" : "it.tramways.commons.api.model.TramwaysResource",
+    "BooleanWrapper" : "it.tramways.commons.api.model.BooleanWrapper",
+    "StringWrapper" : "it.tramways.commons.api.model.StringWrapper",
+    "ErrorWrapper" : "it.tramways.commons.api.model.ErrorWrapper",
+    "Configurable" : "it.tramways.commons.api.model.Configurable",
+    "Property" : "it.tramways.properties.api.model.Property",
+    "RoadMap" : "it.tramways.roadmaps.api.model.RoadMap",
+    "RoadMapContent" : "it.tramways.roadmaps.api.model.RoadMapContent",
+    "RelevantPoint" : "it.tramways.roadmaps.api.model.RelevantPoint",
+    "Lane" : "it.tramways.roadmaps.api.model.Lane",
+    "CrossingLink" : "it.tramways.roadmaps.api.model.CrossingLink"
+  }
+}

@@ -47,14 +47,6 @@
   <groupId>it.tramways</groupId>
   <modelVersion>4.0.0</modelVersion>
 
-
-  <modules>
-    <module>users-api</module>
-  </modules>
-
-  <packaging>pom</packaging>
-
-
   <parent>
     <artifactId>spring-boot-starter-parent</artifactId>
     <groupId>org.springframework.boot</groupId>
@@ -71,4 +63,112 @@
   </properties>
 
   <version>1.0.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>openapi-generator-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>commons-api</id>
+            <configuration>
+              <configOptions>
+                <apiPackage>it.tramways.commons.api</apiPackage>
+                <modelPackage>it.tramways.commons.api.model</modelPackage>
+                <interfaceOnly>true</interfaceOnly>
+              </configOptions>
+              <generatorName>spring</generatorName>
+              <inputSpec>${project.basedir}/src/main/resources/api/commons.yaml</inputSpec>
+              <configurationFile>${project.basedir}/src/main/resources/api/commons.config.json</configurationFile>
+            </configuration>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>properties-api</id>
+            <configuration>
+              <configOptions>
+                <apiPackage>it.tramways.properties.api</apiPackage>
+                <modelPackage>it.tramways.properties.api.model</modelPackage>
+                <interfaceOnly>true</interfaceOnly>
+              </configOptions>
+              <generatorName>spring</generatorName>
+              <inputSpec>${project.basedir}/src/main/resources/api/properties.yaml</inputSpec>
+              <configurationFile>${project.basedir}/src/main/resources/api/properties.config.json</configurationFile>
+            </configuration>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>roadmaps-api</id>
+            <configuration>
+              <configOptions>
+                <apiPackage>it.tramways.roadmaps.api</apiPackage>
+                <modelPackage>it.tramways.roadmaps.api.model</modelPackage>
+                <interfaceOnly>true</interfaceOnly>
+              </configOptions>
+              <generatorName>spring</generatorName>
+              <inputSpec>${project.basedir}/src/main/resources/api/roadmaps.yaml</inputSpec>
+              <configurationFile>${project.basedir}/src/main/resources/api/roadmaps.config.json</configurationFile>
+            </configuration>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>users-api</id>
+            <configuration>
+              <configOptions>
+                <apiPackage>it.tramways.users.api</apiPackage>
+                <modelPackage>it.tramways.users.api.model</modelPackage>
+                <interfaceOnly>true</interfaceOnly>
+              </configOptions>
+              <generatorName>spring</generatorName>
+              <inputSpec>${project.basedir}/src/main/resources/api/users.yaml</inputSpec>
+              <configurationFile>${project.basedir}/src/main/resources/api/config.json</configurationFile>
+            </configuration>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>projects-api</id>
+            <configuration>
+              <configOptions>
+                <apiPackage>it.tramways.projects.api</apiPackage>
+                <modelPackage>it.tramways.projects.api.model</modelPackage>
+                <interfaceOnly>true</interfaceOnly>
+              </configOptions>
+              <generatorName>spring</generatorName>
+              <inputSpec>${project.basedir}/src/main/resources/api/projects.yaml</inputSpec>
+              <configurationFile>${project.basedir}/src/main/resources/api/projects.config.json</configurationFile>
+            </configuration>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>analysis-api</id>
+            <configuration>
+              <configOptions>
+                <apiPackage>it.tramways.analysis.api</apiPackage>
+                <modelPackage>it.tramways.analysis.api.model</modelPackage>
+                <interfaceOnly>true</interfaceOnly>
+              </configOptions>
+              <generatorName>spring</generatorName>
+              <inputSpec>${project.basedir}/src/main/resources/api/analysis.yaml</inputSpec>
+              <configurationFile>${project.basedir}/src/main/resources/api/analysis.config.json</configurationFile>
+            </configuration>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <groupId>org.openapitools</groupId>
+        <version>4.3.1</version>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>

@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   title: Tramways Users API
   description: Tramways Users API
@@ -37,7 +37,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         '401':
-          $ref: '#/components/responses/Unauthorized'
+          $ref: './commons.yaml#/components/responses/Unauthorized'
   /users/login:
     post:
       summary: 'Logs a user in'
@@ -50,7 +50,7 @@ paths:
               $ref: '#/components/schemas/LoginRequest'
       responses:
         '200':
-          $ref: '#/components/responses/Ok'
+          $ref: './commons.yaml#/components/responses/Ok'
   /users/logged:
     get:
       summary: 'Gets logged user'
@@ -85,7 +85,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorWrapper'
+                $ref: './commons.yaml#/components/schemas/ErrorWrapper'
     delete:
       operationId: 'deleteUser'
       summary: 'Deletes a user'
@@ -154,7 +154,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/BooleanWrapper'
+              $ref: './commons.yaml#/components/schemas/BooleanWrapper'
       responses:
         '200':
           description: Ok
@@ -173,7 +173,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StringWrapper'
+              $ref: './commons.yaml#/components/schemas/StringWrapper'
       responses:
         '200':
           description: OK
@@ -212,7 +212,7 @@ components:
           type: string
     User:
       allOf:
-        - $ref: '#/components/schemas/TramwaysResource'
+        - $ref: './commons.yaml#/components/schemas/TramwaysResource'
         - type: object
           properties:
             username:
@@ -225,44 +225,5 @@ components:
     UserRole:
       type: string
       enum: [CLIENT, EXPERT, ADMIN]
-    TramwaysResource:
-      type: object
-      discriminator:
-        propertyName: resourceType
-      properties:
-        uuid:
-          type: string
-        resourceType:
-          type: string
-    BooleanWrapper:
-      type: object
-      properties:
-        value:
-          type: boolean
-    StringWrapper:
-      type: object
-      properties:
-        value:
-          type: string
-    ErrorWrapper:
-      type: object
-      properties:
-        message:
-          type: string
-  responses:
-    Created:
-      description: 'Resource created'
-      headers:
-        Location:
-          schema:
-            type: string
-    Ok:
-      description: 'Request successful'
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/StringWrapper'
-    Unauthorized:
-      description: 'You are not authorized'
 security:
   - bearerAuth: []
