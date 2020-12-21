@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * RelevantPointAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-10-08T23:23:40.619875200+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-13T17:43:40.536531+01:00[Europe/Rome]")
 
 public class RelevantPointAllOf   {
   @JsonProperty("links")

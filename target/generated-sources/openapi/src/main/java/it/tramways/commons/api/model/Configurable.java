@@ -16,7 +16,7 @@ import javax.validation.constraints.*;
 /**
  * Configurable
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-10-08T23:23:38.660084500+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-13T17:43:38.967669+01:00[Europe/Rome]")
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXISTING_PROPERTY, property = "configurableType", visible = true)
 @JsonSubTypes({

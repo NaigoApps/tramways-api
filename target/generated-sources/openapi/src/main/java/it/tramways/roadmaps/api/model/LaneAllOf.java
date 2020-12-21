@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * LaneAllOf
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-10-08T23:23:39.599505400+02:00[Europe/Berlin]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-13T17:43:39.861804+01:00[Europe/Rome]")
 
 public class LaneAllOf   {
   @JsonProperty("sourceId")
