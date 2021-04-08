@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * DecimalProperty
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-13T17:43:39.360953+01:00[Europe/Rome]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-04-05T22:19:44.093692+02:00[Europe/Rome]")
 
 public class DecimalProperty extends Property  {
   @JsonProperty("value")

@@ -6,6 +6,81 @@ info:
 servers:
   - url: http://localhost:8762/tramways/rest/
 paths:
+  /projects:
+    post:
+      operationId: 'createProject'
+      summary: 'Creates a new project'
+      tags: [ 'projects' ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+      responses:
+        '200':
+          description: Ok
+    get:
+      operationId: 'getProjects'
+      summary: 'Gets user projects'
+      tags: [ 'projects' ]
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProjectDescription'
+    /projects/{id}:
+      get:
+        summary: 'Gets project'
+        operationId: 'getProject'
+        tags: [ 'projects' ]
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Ok
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Project'
+      put:
+        summary: 'Updates a project'
+        operationId: 'updateProject'
+        tags: [ 'projects' ]
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateProjectRequest'
+        responses:
+          '200':
+            description: Ok
+      delete:
+        summary: 'Deletes a project'
+        operationId: 'deleteProject'
+        tags: [ 'projects' ]
+        parameters:
+          - in: path
+            name: id
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            $ref: '#/components/responses/Ok'
   /projects/{projectId}/maps:
     post:
       summary: 'Creates a map'
@@ -100,6 +175,16 @@ components:
       scheme: bearer
       bearerFormat: JWT
   schemas:
+    CreateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
+    UpdateProjectRequest:
+      type: object
+      properties:
+        name:
+          type: string
     CreateMapRequest:
       type: object
       properties:
@@ -110,5 +195,16 @@ components:
       properties:
         map:
           $ref: './roadmaps.yaml#/components/schemas/RoadMap'
+    ProjectDescription:
+      type: object
+      properties:
+        uuid:
+          type: string
+        name:
+          type: string
+        roadMaps:
+          type: array
+          items:
+            $ref: '#/components/schemas/RoadMapDescription'
 security:
   - bearerAuth: []

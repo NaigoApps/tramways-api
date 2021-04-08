@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * BooleanWrapper
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-13T17:43:38.967669+01:00[Europe/Rome]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-04-05T22:19:43.108553+02:00[Europe/Rome]")
 
 public class BooleanWrapper   {
   @JsonProperty("value")

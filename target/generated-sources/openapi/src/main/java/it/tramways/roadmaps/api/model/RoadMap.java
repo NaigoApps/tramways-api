@@ -14,14 +14,14 @@ import javax.validation.constraints.*;
 /**
  * RoadMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-12-13T17:43:39.861804+01:00[Europe/Rome]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-04-05T22:19:44.955233+02:00[Europe/Rome]")
 
 public class RoadMap extends it.tramways.commons.api.model.TramwaysResource  {
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("content")
-  private RoadMapContent content;
+  private RoadMapContent content = null;
 
   public RoadMap name(String name) {
     this.name = name;
